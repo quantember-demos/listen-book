@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Records its arguments and the audio it is sent, at real playback speed
+# (a real pw-cat is paced by the sound card).
+# FAKE_PWCAT_MODE=stall: never reads (a hung audio server); =exit: dies at once.
+echo "$*" >> "${FAKE_AUDIO_DIR:?}/pw-cat.args"
+case "${FAKE_PWCAT_MODE:-}" in
+  stall) exec sleep 300 ;;
+  exit) exit 1 ;;
+esac
+exec "${FAKE_REAL_PYTHON:-python3}" "$(dirname "$0")/pw_cat_sink.py" "$FAKE_AUDIO_DIR/pw-cat.raw"

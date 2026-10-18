@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Launcher. Works from a checkout (after install.sh) or the installed prefix.
+set -euo pipefail
+HERE="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+export LISTEN_BOOK_PREFIX="${LISTEN_BOOK_PREFIX:-$HERE}"
+
+# The venv's Python runs the window too: it has numpy and soundfile, and
+# tkinter comes from the system Python it was built from
+PY="$LISTEN_BOOK_PREFIX/venv/bin/python"
+if [[ ! -x "$PY" ]]; then
+  echo "Listen Book is not installed yet: run ./install.sh" >&2
+  exit 1
+fi
+exec "$PY" "$HERE/app/listen.py" "$@"

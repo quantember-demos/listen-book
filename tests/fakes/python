@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Stand-in for the voice-engine interpreter (LISTEN_BOOK_PYTHON). listen.py
+# runs "<python> _listen_synth.py --voice V --speed S"; this ignores the
+# helper path and runs the fake worker with the test's own Python instead.
+shift
+exec "${FAKE_REAL_PYTHON:-python3}" "$(dirname "$0")/fake_worker.py" "$@"

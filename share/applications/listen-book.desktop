@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Listen Book
+Comment=Read chapters aloud with a local voice model
+Exec=listen-book %F
+Icon=listen-book
+Terminal=false
+StartupNotify=true
+Categories=AudioVideo;Audio;Player;
+MimeType=text/markdown;text/plain;text/html;

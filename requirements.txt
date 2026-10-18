@@ -1,0 +1,11 @@
+# Voice engine (installed into PREFIX/venv by install.sh). Python 3.10-3.12.
+# torch comes from the CPU-only index: install.sh passes
+#   --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0
+kokoro==0.9.4
+misaki[en]==0.9.4
+numpy==2.5.4
+soundfile==0.14.0
+# English language model used by misaki. Installing it here stops misaki from
+# downloading it on first use, so the app never needs the network after install.
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl#sha256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85

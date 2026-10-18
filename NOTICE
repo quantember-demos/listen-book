@@ -1,0 +1,29 @@
+Listen Book — Copyright (c) 2026 Brian Kilgore, MIT License (see LICENSE).
+
+This repository contains no third-party code or model weights. install.sh
+downloads and installs the following, each under its own license:
+
+- Kokoro-82M voice model and voices, by hexgrad
+  https://huggingface.co/hexgrad/Kokoro-82M — Apache License 2.0
+  Fetched at revision f3ff3571791e39611d31c381e3a41a3af07b4987 and checked
+  against models.sha256.
+- kokoro and misaki Python packages, by hexgrad — Apache License 2.0
+- PyTorch — Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT
+  (with LLVM-exception), per its package metadata
+- spaCy en_core_web_sm language model, by Explosion — MIT License
+- numpy — BSD-3-Clause (bundled parts: 0BSD, MIT, Zlib, CC0-1.0)
+- soundfile — BSD-3-Clause
+
+- espeak-ng library and data (GPL-3.0-or-later), bundled inside the
+  espeakng_loader package that misaki depends on; kokoro uses it for words
+  outside misaki's dictionary.
+
+Other dependencies pip installs along the way include copyleft and
+weak-copyleft packages, used unmodified as published on PyPI:
+- phonemizer-fork — GPL-3.0-or-later (via misaki)
+- num2words — LGPL
+- libsndfile — LGPL-2.1, bundled inside the soundfile package
+- certifi — MPL-2.0; tqdm — MPL-2.0 AND MIT
+The remaining dependencies are under permissive licenses (MIT, BSD, Apache).
+Listen Book's own code links to none of them at build time and redistributes
+none of them; it is MIT-licensed.
